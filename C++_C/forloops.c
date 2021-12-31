@@ -1,0 +1,18 @@
+#include <stdio.h> 
+#include <stdlib.h>
+int main() 
+{   
+    int i;
+    for (i = 1; i <= 5; i++) {
+        printf("%d\n",i);
+    }
+    printf("\n");
+
+    int Sample[] = {11,55,22,13,65};
+
+
+    for (i = 0; i < 5; i++) {
+        printf("%d\n",Sample[i]);
+    }
+    return 0; 
+} 

@@ -1,0 +1,7 @@
+tmux new-session \; \
+  send-keys 'htop' C-m \
+  split-window -v \; \
+  split-window -h \; \
+  send-keys 'cd ~/Projects' C-m \; \
+  split-window -v \; \;
+

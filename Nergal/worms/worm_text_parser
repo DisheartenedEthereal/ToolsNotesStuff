@@ -1,0 +1,32 @@
+#!/usr/bin/python
+import os,sys
+from time import sleep
+abspath = os. path. abspath(sys. argv[0])
+dname = os. path. dirname(abspath)
+os.chdir(dname)
+keywords = ["password","passwords","Note","Server","Log","@","gmail","Yahoo","protonmail"]
+files = [f for f in os.listdir('.') if os.path.isfile(f)]
+def parse():
+    for f in files:
+        sleep(0.001)
+        yield
+        extension = os.path.splitext(f)[1]
+        if extension == ".txt":
+            o = open(f,"r")
+            body = o.read()
+            for key in keywords:
+                if key in body == True:
+                    log = open("tmp_results","a")
+                    log.write("-"*25)
+                    log.write("Name : "+f+"\n")
+                    log.write("body")
+
+        else:
+            continue
+
+    pass
+from alive_progress import alive_bar
+
+with alive_bar(len(files)) as bar:
+    for i in parse():
+            bar()

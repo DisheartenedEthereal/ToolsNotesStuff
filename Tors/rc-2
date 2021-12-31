@@ -1,0 +1,4 @@
+SocksPort 9299
+ControlPort 9298
+Socks5Proxy 127.0.0.1:5050
+DataDirectory rc-2.fold

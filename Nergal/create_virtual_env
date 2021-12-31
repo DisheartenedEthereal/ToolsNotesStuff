@@ -1,0 +1,96 @@
+#!/usr/bin/python
+import os,time,sys,random,time
+start_time = time.time()
+os.system("mkdir env")
+#created = []
+#drive_lets = ["C:","D:","E:","F:","H:","I:","J:"]
+#for i in range(random.randrange(1, 7)):
+#    os.system("mkdir -p env/"+str(drive_lets[i]))
+#    created.append(str(drive_lets[i]))
+#print("Drives: ")
+#for i in created:
+#    print(i)
+#global count,count_dll,count_jpeg,count_txt,count_pdf,count_png
+#count= 0
+#count_txt = 0
+#count_jpeg = 0
+#count_dll= 0
+#count_pdf = 0
+#count_png = 0
+
+total_files = random.randrange(3500,15000)
+
+
+def decide(pathj):
+    formats = ["txt","jpeg","dll","pdf","png"]
+
+    if random.choice(formats) == "txt":
+        os.system("touch "+pathj+".txt")
+        #print("init TXT at : "+pathj)
+        return "txt"
+    elif random.choice(formats) == "jpeg":
+        os.system("touch "+pathj+".jpeg")
+        #print("init JPEG at : "+pathj)
+        return "jpeg"
+    elif random.choice(formats) == "dll":
+        os.system("touch "+pathj+".dll")
+        #print("init DLL at : "+pathj)
+        return "dll"
+    elif random.choice(formats) == "pdf":
+        os.system("touch "+pathj+".pdf")
+        #print("init PDF at : "+pathj)
+        return "pdf"
+    elif random.choice(formats) == "png":
+        os.system("touch " + pathj+".png")
+        #print("init PNG at : "+pathj)
+        return "png"
+from alive_progress import alive_bar
+def main():
+    created = []
+    global count,count_dll,count_jpeg,count_txt,count_pdf,count_png
+    count= 0
+    count_txt = 0
+    count_jpeg = 0
+    count_dll= 0
+    count_pdf = 0
+    count_png = 0
+
+    drive_lets = ["C:","D:","E:","F:","H:","I:","J:"]
+    for i in range(random.randrange(1, 7)):
+        os.system("mkdir -p env/"+str(drive_lets[i]))
+        created.append(str(drive_lets[i]))
+
+    for i in created:
+        for j in range(int(total_files / len(created))):
+             #os.system("touch env/"+str(i)+"/"+str(j)+".file")
+            x = decide("env/"+str(i)+"/"+str(j))
+            if x == "txt":
+                count_txt +=1
+            elif x == "jpeg":
+                count_jpeg +=1
+            elif x == "dll":
+                count_dll +=1
+            elif x == "pdf":
+                count_pdf += 1
+            elif x == "png" :
+                count_png += 1
+            yield
+            #print("env/"+str(i)+"/"+str(j))
+            #print("File init : env/"+i+"/"+str(j)+".file")
+            #count = count + 1
+
+    countall = count_txt + count_jpeg + count_pdf + count_png + count_dll
+    #print("--- %s seconds ---" % round((time.time() - start_time),2))
+    #print("--- Created %s JPG files ---" % count_jpeg)
+    #print("--- Created %s PNG files ---" % count_png)
+    #print("--- Created %s PDF files ---" % count_pdf)
+    #print("--- Created %s DLL files ---" % count_dll)
+    #print("--- Created %s TXT files ---" % count_txt)
+    print("--- Created %s files in total ---" % countall)
+with alive_bar(total_files) as bar:
+    try:
+        for i in main():
+            bar()
+    except KeyboardInterrupt:
+        sys.exit()
+

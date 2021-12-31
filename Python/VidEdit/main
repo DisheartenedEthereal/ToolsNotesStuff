@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+#deleted for a better setup
+from tkinter import * #basic import syntax
+
+root = Tk() #root window
+
+# mylabel = Label(root,text="Helloooo") #labels
+# mylabel2 = Label(root,text="test") #labels
+
+# mylabel.pack() # shove it in the first available spot
+# mylabel.grid(row=0,column=0) # use columns and rows
+# mylabel2.grid(row=1,column=0)  # use columns and rows
+def click():
+    mylabel = Label(root,text="Helloooo") #labels
+    mylabel.pack()
+butt = Button(root,text="click me and see \'nothing\' happen", padx=50,pady=80,command=click)
+butt.pack()
+root.mainloop() # start a loop of the root widget

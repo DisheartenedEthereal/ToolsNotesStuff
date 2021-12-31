@@ -1,0 +1,41 @@
+body {
+    background-color: lightblue;
+  }
+  
+.h1 {
+    color: coral;
+    margin-left: 20px;
+  }
+
+.figmabutton{
+  /* Primary600 */
+
+  background: #4945FF;
+  border-radius: 4px;
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+
+  position: absolute;
+  width: 92px;
+  height: 40px;
+  left: 53px;
+  top: 544px;
+}
+  
+.figmainp{
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  width: 270px;
+  height: 77px;
+  left: 53px;
+  top: 317px;
+}

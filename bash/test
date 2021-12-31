@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Hello world"
+myname="hello" # variable
+declare -r NUM1=5 # constant 
+
+

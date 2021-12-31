@@ -1,0 +1,45 @@
+#!/bin/sh
+
+MPLAYER=mplayer
+
+FIFO="${HOME}/.vwallpaper.pipe"
+
+#get pid if xwinwrap with mplayer is running
+xpid=`ps -eo pid,args |grep -e "xwinwrap.*mplayer" | grep -v grep | cut -c1-6`
+
+function vwall {
+	if [ -e "${1}" ] ; then
+		mkfifo "${FIFO}"
+		cat <<EOF
+Starting vwallpaper
+Pipe: ${FIFO}
+if you want to stop the video wallpaper, just run
+
+echo "quit" >> ${FIFO}
+
+or press Ctrl + C ;)
+EOF
+		xwinwrap -ov -fs -sp -st -nf -- \
+						$MPLAYER -loop 0 -fs -wid WID \
+						-slave -input file="${FIFO}" \
+						-ao null -panscan 1 \
+						"${1}" &> /dev/null
+		rm -f "${FIFO}"
+	fi
+}
+
+if [ -p "${FIFO}" ] ; then
+	if [ $xpid ] ; then
+	#mplayer2 is running, replacing video
+		echo "loadfile ${1}" >> "${FIFO}"
+	else
+	#mplayer2 is dead, but pipe still exists, removing it.
+		rm -f "${FIFO}"
+		vwall $1
+	fi
+else
+	vwall $1
+fi
+
+
+

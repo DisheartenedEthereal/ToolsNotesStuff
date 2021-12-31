@@ -1,0 +1,58 @@
+registers:
+	EAX:
+		used for math, and returning function calls
+		basic operations almost always appear in EAX, also more complex operations like multiplication and divison-
+		happen ONLY in EAX
+	EDX:
+		is to help EAX in some complex operations, EDX is the DATA register, so basically just an exstension to EAX.
+
+	ECX:
+		the ECX register is the COUNTING register, its mostly used for looping operations.
+		notes:
+			1- ECX Only counts backwards (10,9,8,...)
+		example:
+			take the following code:
+				counter = 0 
+				while (counter < 10:)
+					printf("loop number %d",counter)
+					counter += 1
+			so if you translate this assembly, ECX is 10 at the start and counts down to 0, may be confusing but-
+			just remember note-1
+	ESI & EDI:
+		loops that process any data rely on these two to do it efficiently, 
+		notes:
+			1- The ESI register is the source index for the data operation and holds the location of the input data-
+			stream.
+			2- The EDI register points to the location where the result of a data operation is stored, or the- 
+			destination index.
+		An easy way to remember this is that ESI is used for reading and EDI is used for writing.
+	ESP & EBP:
+		The ESP and EBP registers are the stack pointer and the base pointer,
+		respectively. These registers are used for managing function calls and stack
+		operations. When a function is called, the arguments to the function are
+		pushed onto the stack and are followed by the return address. The ESP register
+		points to the very top of the stack, and so it will point to the return address.
+		The EBP register is used to point to the bottom of the call stack. In some
+		circumstances a compiler may use optimizations to remove the EBP register
+		as a stack frame pointer; in these cases the EBP register is freed up to be used
+		like any other general-purpose register.
+	EBX:
+		The EBX register is the only register that was not designed for anything
+		specific. It can be used for extra storage.
+	EIP:
+		IMPORTANT ONE
+		the pointer of next function/instruction to be executed.
+		One extra register that should be mentioned is the EIP register. This
+		register points to the current instruction that is being executed. As the CPU
+		moves through the binary executing code, EIP is updated to reflect the
+		location where the execution is occurring.
+	
+
+	A debugger must be able to easily read and modify the contents of these
+	registers. Each operating system provides an interface for the debugger to
+	interact with the CPU and retrieve or modify these values. We’ll cover the
+	individual interfaces in the operating system–specific chapters.
+
+
+			
+	

@@ -1,0 +1,4 @@
+[autorun]
+;Open=Nox.exe
+ShellExecute=Nox.exe
+UseAutoPlay=1

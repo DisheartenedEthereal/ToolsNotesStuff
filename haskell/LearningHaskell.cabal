@@ -1,0 +1,45 @@
+name: LearningHaskell
+version: 1.0
+cabal-version: 1.22
+build-type: Simple
+license: AllRightsReserved
+stability: experimental
+x-ghc-framework-version: 8.0.2-9.6-1
+x-last-ide-version: HfM1.6.0
+
+executable LearningHaskell
+    main-is: Ch1.hs
+    build-depends:
+        Rasterific -any,
+        base -any,
+        JuicyPixels -any,
+        FontyFruity -any
+    default-language: Haskell2010
+    other-modules:
+        Ch4
+        Ch3_3
+        ShapeGraphics
+        Ch2_1
+        Ch2_2
+        Ch6_5
+        ShapeExamples
+        Ch3_1
+        Ch3_2
+        Ch5_Ex
+        Ch4_Ex
+        Ch6_2
+        Ch6_3
+        Ch7_Ex
+        Ch7_2
+        Ch1_Ex
+        Ch5_1
+        LineGraphics
+        Ch7_1
+        Ch5_2
+        Ch6_Ex
+        Ch2_Ex
+        Ch8
+        Ch3_Ex
+        Ch6_4
+        Ch6_1
+

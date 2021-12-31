@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+
+declare -r NUM1=2
+num2=3
+
+num3=$((NUM1+num2))
+num4=$((NUM1-num2))
+num5=$((NUM1/num2))
+num6=$((NUM1*num2))
+
+
+echo "2 + 3 = $num3"
+echo "2 - 3 = $num4"
+echo "2 / 3 = $num5"
+echo "2 * 3 = $num6"
+
+

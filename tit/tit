@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+import sys, os, time
+import configparser
+
+config = configparser.ConfigParser()
+os.chdir(os.getcwd())
+
+
+def init():
+    os.system("rm " + os.getcwd() + "/titfile")
+    time.sleep(0.2)
+    config.add_section('version')
+    config['version']['name'] = "Sample"
+    config['version']['ver'] = "0.0"
+    config['version']['desc'] = "A sample titfile"
+    config['version']['ignore'] = "titfile,"
+    with open("titfile", 'w') as f:
+        config.write(f)
+        f.close()
+
+
+def loadTitFile():
+    config.read("titfile")
+    global name, ver, desc, ignore
+    name = config['version']['name']
+    ver = config['version']['ver']
+    desc = config['version']['desc']
+    ignore = config['version']['ignore']
+
+
+def updateTitFile(Name, Ver, Desc, Ignore):
+    edit = configparser.ConfigParser()
+    edit.read(os.getcwd() + "/titfile")
+    #Get the postgresql section
+    vers = edit["version"]
+    #Update the password
+    vers["ver"] = str(Ver)
+    vers["name"] = str(Name)
+    vers["desc"] = str(Desc)
+    vers["ignore"] = str(Ignore)
+    #Write changes back to file
+    with open(os.getcwd() + "/titfile", 'w') as configfile:
+        edit.write(configfile)
+
+
+def updateRepo():
+    loadTitFile()
+    version = round(float(ver) + 0.1, 1)
+    updateTitFile(name, version, desc, ignore)
+    foldername = name + '-' + str(version)
+    os.system("cp -r " + os.getcwd() + " $HOME/.titrepos/" + foldername)
+
+
+if __name__ == "__main__":
+    #loadTitFile()
+    if sys.argv[1] == "init":
+        init()
+    elif sys.argv[1] == "edit":
+        updateTitFile(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+    elif sys.argv[1] == "update":
+        updateRepo()
+    else:
+        print("Invalid expression")

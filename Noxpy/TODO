@@ -1,0 +1,59 @@
+#1:	
+	Infect:
+		using usb on lin
+		using usb on win
+		fuck mac
+
+	runfile:
+		a nice user friendly(more like enemily lmao) interface
+		optimize code
+		need to export exe file
+		
+	TBE:
+		needs rename
+		needs protcol to transfer the key with encryption
+		needs a way to execlude file formats
+		needs some intelligence to not fuck up the os and make it unusable
+		needs to add a shortcut to the runfile in every folder it encrypts
+		needs some speed meters and some estimations
+	
+	writekey:
+		TBE(2)
+	key:
+		needs salt, needs more encryption, needs a .noxkey file
+	isoset:
+		isolation needs more realism, perhaps a wine setup or some apps installed.
+	cliframe:
+		needs to be removed and merged into runfile
+	autorun.inf:
+		needs a new autorun system to be ignored by antiviruses
+#2	
+
+	Lest discuss ideas:
+		- we need an algorithm to spread this through the network
+		check "Worms"
+		- we need an algorithm to spread this through external data:
+			- emails
+			- documents 
+			- exe files
+			- ETC
+		- we also need a controller of some sort, probably a system using email servers, altough i think it will me much more efficient to just use a anonymos hosting, maybe even onion services
+		- we also need a front page in the onion services to redirect the victims to purchase sites.
+		- executables for win32 (EXE) and linux (Probably compiled machine code.)
+		- maybe eveen extend to DARwin at some point, not impossible altough i lack a system to test it on
+#3 	
+	Testing conditions:
+		- WIN7,32 / 64 bit should be tested (most important os)
+		- winSERVER x86 should be tested just in case we run into servers
+		- to stop "super-spreading" we should leave win 8 alone
+		- windows 10 should'nt really be tested, in theory it should just work.
+		- linux:
+		- arch-family, kali, ubuntu, centos
+		- debian will be a target too
+		- ubuntu should just work as debian does, same goes for mint or really any deb based distro
+		- redhat family seems important, altough i have no fucking idea what os are servers at iran are running.
+		- centos probably
+		- i need to create a spread condition through virtual machines and check how well does it work
+	IRL testing:
+		- i need to find a small network to inject this in, knowing i wont spread it too far.
+		- i need to monitor spread patterns so it does not just "fail"

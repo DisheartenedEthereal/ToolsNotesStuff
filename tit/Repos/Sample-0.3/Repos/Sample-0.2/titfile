@@ -1,0 +1,6 @@
+[version]
+name = Sample
+ver = 0.2
+desc = A sample titfile
+ignore = titfile,
+

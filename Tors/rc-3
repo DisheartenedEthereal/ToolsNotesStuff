@@ -1,0 +1,4 @@
+SocksPort 9300
+ControlPort 9301
+Socks5Proxy 127.0.0.1:5050
+DataDirectory rc-3.fold

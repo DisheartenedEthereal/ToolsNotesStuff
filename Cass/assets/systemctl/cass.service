@@ -1,0 +1,14 @@
+// THIS IS A TEMPLATE AND HAS NOT BEEN FINISHED YET
+
+[Unit]
+Description=TODOOOO
+After=network.target
+StartLimitIntervalSec=0[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=TODO
+ExecStart=TODO
+
+[Install]
+WantedBy=multi-user.target
