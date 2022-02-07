@@ -67,7 +67,7 @@ class data:
         for x, y in self.artist_names.items():
             labels.append(x)
             sizes.append(y)
-        plt.figure(figsize=(20,20),dpi=250)
+        plt.figure(figsize=(5,5),dpi=250)
         plt.pie(sizes, labels=labels,textprops={'fontsize': 5})
         plt.axis('equal')
         plt.savefig('artists.png')
